@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio | Montse Conchas</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<script>
+  const videoCard = document.querySelector(
+    '.project-card .project-video'
+  );
+
+  if (videoCard) {
+    const card = videoCard.closest('.project-card');
+
+    card.addEventListener('mouseenter', () => {
+      videoCard.currentTime = 0;
+      videoCard.play().catch(() => {});
+    });
+
+    card.addEventListener('mouseleave', () => {
+      videoCard.pause();
+      videoCard.currentTime = 0;
+    });
+  }
+</script>
+
+
+<body>
+
+  <header>
+    <h1>Montserrat Dueñas Conchas</h1>
+    <h2>Ingeniería en Creación de Videojuegos y Entornos Virtuales · Arte & Diseño</h2>
+  </header>
+
+  <section class="about">
+    <h2 class="section-title">Sobre mí</h2>
+    <p>
+      Soy estudiante de Ingeniería en Creación de Videojuegos y Entornos Virtuales en la Universidad Autónoma de Guadalajara,
+      con interés principal en el área de arte y diseño, aunque también cuento con conocimientos de programación.
+      Me gusta crear experiencias interactivas que combinen estética, narrativa y jugabilidad.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Proyectos</h2>
+
+    <div class="projects">
+
+      <div class="project-card">
+        <h3>Videojuego de terror</h3>
+        <p>Juego en Unity con animaciones, selección de dificultad y sistema de Game Over.</p>
+        <img src="img/Proyecto1.jpeg" alt="Videojuego de terror" class="project-image">
+      </div>
+
+      <div class="project-card">
+        <h3>Avatar para realidad virtual</h3>
+        <p>Modelado 3D con huesos para un laboratorio de biomédica.</p>
+        <img src="img/Proyecto2.jpeg" alt="Avatar VR" class="project-image">
+      </div>
+
+      <div class="project-card">
+        <h3>Planeación de videojuego sandbox</h3>
+        <p>Idea de videojuego para un cliente con entornos modelados, modelos de personajes y cotizaciones.</p>
+        <img src="img/Proyecto3.jpg" alt="Sandbox" class="project-image">
+      </div>
+
+      <div class="project-card">
+        <h3>Videojuego 2D de aventura</h3>
+        <p>Videojuego con diseños originales 2D, animaciones, doblaje y nivel completo.</p>
+        <img src="img/Proyecto4.jpeg" alt="Juego 2D" class="project-image">
+      </div>
+
+      <div class="project-card">
+        <h3>Animación 2D y fondo 3D</h3>
+        <p>Animación corta en After Effects con fondo en 3D hecho en 3Ds Max.</p>
+
+        <video
+        class="project-image project-video"
+        muted
+        loop
+        playsinline
+        >
+        <source src="./img/Proyecto5.mp4" type="video/mp4">
+        </video>
+    </div>
+
+      <div class="project-card open-modal">
+        <h3>Otros modelados 3D</h3>
+        <p>Modelados 3D realizados en 3Ds Max, Blender y Nomad Sculpt.</p>
+        <p style="color: pink;">Click para ver.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 · Montserrat Dueñas Conchas · Portafolio
+  </footer>
+
+  <div class="modal" id="modeladosModal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+
+      <h2>Otros modelados 3D</h2>
+      <p class="modal-text">
+        Colección de modelados 3D realizados en proyectos académicos,
+        utilizando 3Ds Max, Blender y Nomad Sculpt.
+      </p>
+
+      <div class="modal-grid">
+        <img src="Modelado1.jpeg" alt="Modelado 1">
+        <img src="Modelado2.jpeg" alt="Modelado 2">
+        <img src="Modelado3.png" alt="Modelado 3">
+        <img src="Modelado4.png" alt="Modelado 4">
+        <img src="Modelado5.png" alt="Modelado 5">
+        <img src="Modelado6.png" alt="Modelado 6">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const openCard = document.querySelector('.open-modal');
+    const modal = document.getElementById('modeladosModal');
+    const closeBtn = document.querySelector('.close-modal');
+
+    openCard.addEventListener('click', () => {
+      modal.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
+    });
+  </script>
+
+</body>
+</html>
